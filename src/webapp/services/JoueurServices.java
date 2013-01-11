@@ -17,5 +17,4 @@ public class JoueurServices extends AbstractJoueurConverter implements IJoueurSe
 		return joueurDao.addJoueur(convertJoueurToJoueurDO(joueur));
 	}
 
-
 }

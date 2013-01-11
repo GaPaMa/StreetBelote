@@ -13,19 +13,20 @@ import webapp.services.IJoueurServices;
 @Controller
 public class JoueurController {
 
-	/******* Actions ******/
+	/* ****** Actions ***** */
 	private static final String ACTION_LOGIN_DO = "/login.do";
 	private static final String ACTION_ADD_JOUEUR_DO = "/addJoueur.do";
-	
-	/*******Redirections****/
+
+	/* ****** Redirections *** */
 	private static final String FORWARD_INDEX = "index";
 	private static final String FORWARD_ACCUEIL = "accueil";
-	
-	
-	/**** le bean est créé automatiquement avec Autowired (pas besoin de le mettre dans le xml) ***/
+
+	/****
+	 * le bean est créé automatiquement avec Autowired (pas besoin de le mettre
+	 * dans le xml)
+	 ***/
 	@Autowired
 	private IJoueurServices joueurServices;
-	
 
 	@RequestMapping(value = ACTION_ADD_JOUEUR_DO, method = RequestMethod.POST)
 	public String addJoueur(
@@ -39,14 +40,14 @@ public class JoueurController {
 		joueur.setPseudo(pseudo);
 		joueur.setEmail(email);
 		joueur.setPassword(password);
-		
-		//a faire : verifier mdp
-		
+
+		// TODO : verifier mdp
+
 		boolean isCreate = joueurServices.addJoueur(joueur);
-		if(isCreate){
+		if (isCreate) {
 			model.addAttribute("pseudo", pseudo);
 			return FORWARD_ACCUEIL;
-		}else{
+		} else {
 			return FORWARD_INDEX;
 		}
 	}
@@ -54,9 +55,9 @@ public class JoueurController {
 	@RequestMapping(value = ACTION_LOGIN_DO, method = RequestMethod.POST)
 	public String login(@RequestParam("pseudo") String pseudo,
 			@RequestParam("password") String password, Model model) {
-	
-		//vérifier existence du joueur
-		
+
+		// TODO : vérifier existence du joueur
+
 		model.addAttribute("pseudo", pseudo);
 		return FORWARD_ACCUEIL;
 	}

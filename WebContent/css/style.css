@@ -116,3 +116,26 @@ h1
 	border: 1px solid black;
 	padding: 5px;
 }
+
+.joueur img
+{
+	width: 50px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.cartesJoueur img
+{
+	width: 85px;
+	position: relative;
+}
+
+#cartes
+{
+	height: 250px;
+}
+
+#cartes img
+{
+	width: 85px;
+}

@@ -6,7 +6,8 @@ import webapp.persistence.data.JoueurDO;
 public abstract class AbstractJoueurConverter {
 	
 	/**
-	 * @param produit
+	 * Transforme un objet de type Joueur en type JoueurDO.
+	 * @param joueur
 	 * @return
 	 */
 	protected JoueurDO convertJoueurToJoueurDO(final Joueur joueur) {
@@ -18,4 +19,5 @@ public abstract class AbstractJoueurConverter {
 		
 		return joueurDO;
 	}
+
 }

@@ -17,8 +17,10 @@
 		<section id="bloc_page">
 			<article id="parties" style="text-align:center">
 				<h1>Parties</h1>
-				<input type="submit" style="width: 500px;" value="Cr&eacute;er une nouvelle partie" />
-				<form action="" method="GET">
+				<form action="table.do" method="post">
+					<input type="submit" style="width: 500px;" value="Cr&eacute;er une nouvelle partie" />
+				</form>
+				<form action="table.do" method="post">
 					<table class="partiesTab">
 					
 						<colgroup>
