@@ -26,7 +26,6 @@ public class JoueurController {
 	@Autowired
 	private IJoueurServices joueurServices;
 	
-
 	@RequestMapping(value = ACTION_ADD_JOUEUR_DO, method = RequestMethod.POST)
 	public String addJoueur(
 			@RequestParam("email-inscription") String email,
@@ -54,11 +53,14 @@ public class JoueurController {
 	@RequestMapping(value = ACTION_LOGIN_DO, method = RequestMethod.POST)
 	public String login(@RequestParam("pseudo") String pseudo,
 			@RequestParam("password") String password, Model model) {
-	
-		//vérifier existence du joueur
 		
-		model.addAttribute("pseudo", pseudo);
-		return FORWARD_ACCUEIL;
+		Joueur joueur = joueurServices.getJoueur(pseudo, password);
+		
+		if(joueur == null){
+			return FORWARD_INDEX;
+		}else{
+			model.addAttribute("joueur", joueur);
+			return FORWARD_ACCUEIL;
+		}
 	}
-
 }

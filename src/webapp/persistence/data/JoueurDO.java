@@ -31,8 +31,8 @@ public class JoueurDO implements Serializable {
 	@Column(name="email", nullable=false)
 	private String email;
     
-	@Column(name="isActif", nullable=false)
-	private Boolean isActif;
+	@Column(name="estActif", nullable=false)
+	private Boolean estActif;
 	
 	public JoueurDO(){}
 
@@ -95,15 +95,15 @@ public class JoueurDO implements Serializable {
 	/**
 	 * @return the isActif
 	 */
-	public Boolean getIsActif() {
-		return isActif;
+	public Boolean getEstActif() {
+		return estActif;
 	}
 
 	/**
 	 * @param isActif the isActif to set
 	 */
-	public void setIsActif(Boolean isActif) {
-		this.isActif = isActif;
+	public void setEstActif(Boolean estActif) {
+		this.estActif = estActif;
 	}
 	
 }

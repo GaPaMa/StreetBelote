@@ -3,10 +3,10 @@ package webapp.services;
 import webapp.beans.Joueur;
 import webapp.persistence.data.JoueurDO;
 
-public abstract class AbstractJoueurConverter {
-	
+public abstract class AbstractJoueurConverter {	
+
 	/**
-	 * @param produit
+	 * @param joueur
 	 * @return
 	 */
 	protected JoueurDO convertJoueurToJoueurDO(final Joueur joueur) {
@@ -17,5 +17,18 @@ public abstract class AbstractJoueurConverter {
 		joueurDO.setIsActif(true);
 		
 		return joueurDO;
+	}
+		
+	/**
+	 * @param joueurDO
+	 * @return
+	 */
+	protected Joueur convertJoueurDOToJoueur(final JoueurDO joueurDO) {
+		Joueur joueur = new Joueur();		
+		joueur.setEmail(joueurDO.getEmail());
+		joueur.setPseudo(joueurDO.getPseudo());
+		joueur.setPassword(joueurDO.getPassword());
+		
+		return joueur;
 	}
 }
