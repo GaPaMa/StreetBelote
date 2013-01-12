@@ -14,21 +14,27 @@ import webapp.persistence.data.JoueurDO;
 @Transactional(propagation = Propagation.MANDATORY)
 public class JoueurDAO implements IJoueurDAO {
 
-	@PersistenceContext(unitName="pu2")
+	@PersistenceContext(unitName = "pu2")
 	private EntityManager entityManager;
-	
+
 	@Override
 	public boolean addJoueur(final JoueurDO joueurDO) {
 		return true;
 	}
 
 	@Override
-	public JoueurDO getJoueur(final String pseudo, final String password) {		
-		Query q = entityManager.createNativeQuery("select count(*) from joueur");
-		System.err.println(q.getSingleResult());
-		JoueurDO j = new JoueurDO();
-		j.setEmail("dsfsdf");
-		return j;
+	public JoueurDO getJoueur(final String pseudo, final String password) {
+		final Query query = entityManager
+				.createNamedQuery("Joueur.findByPseudoAndPassword");
+		query.setParameter("pseudo", pseudo);
+		query.setParameter("password", password);
+		if (query.getResultList().isEmpty()) {
+			return null;
+		}
+
+		final JoueurDO joueurDO = (JoueurDO) query.getSingleResult();
+		return joueurDO;
+
 	}
 
 }

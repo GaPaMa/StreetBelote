@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<header>
-			Bienvenue <c:out value="${pseudo}"></c:out>
+			Bienvenue <c:out value="${joueur.pseudo}"></c:out>
 		</header>	
 		
 		<section id="bloc_page">

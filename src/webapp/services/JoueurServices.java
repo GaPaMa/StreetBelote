@@ -11,11 +11,12 @@ import webapp.persistence.data.JoueurDO;
 
 @Service("servicesJoueurs")
 @Transactional(propagation = Propagation.REQUIRED)
-public class JoueurServices extends AbstractJoueurConverter implements IJoueurServices {
+public class JoueurServices extends AbstractJoueurConverter implements
+		IJoueurServices {
 
 	@Autowired
 	private IJoueurDAO joueurDao;
-	
+
 	@Override
 	public boolean addJoueur(final Joueur joueur) {
 		return joueurDao.addJoueur(convertJoueurToJoueurDO(joueur));
@@ -24,9 +25,13 @@ public class JoueurServices extends AbstractJoueurConverter implements IJoueurSe
 	@Override
 	public Joueur getJoueur(final String pseudo, final String password) {
 		final JoueurDO joueurDO = joueurDao.getJoueur(pseudo, password);
+
+		if (joueurDO == null) {
+			return null;
+		}
+
 		final Joueur joueur = convertJoueurDOToJoueur(joueurDO);
 		return joueur;
 	}
-
 
 }

@@ -14,7 +14,7 @@ public abstract class AbstractJoueurConverter {
 		joueurDO.setEmail(joueur.getEmail());
 		joueurDO.setPseudo(joueur.getPseudo());
 		joueurDO.setPassword(joueur.getPassword());
-		joueurDO.setIsActif(true);
+		joueurDO.setEstActif(true);
 		
 		return joueurDO;
 	}
