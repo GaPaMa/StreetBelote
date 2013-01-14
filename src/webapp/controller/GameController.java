@@ -20,9 +20,15 @@ public class GameController {
 		return "Bonjour " + joueur + " - Carte : " + carte;
 	}
 
+	
+	
+	
+	
 	@RequestMapping(value = "/table.do", method = RequestMethod.POST)
 	public String gotoTable(Model model) {
 		return FORWARD_JEU;
 	}
+	
+	
 
 }
